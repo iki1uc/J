@@ -1,0 +1,10 @@
+#J-ROOM
+NAME: J
+TYPE: UNIVERSAL-JUMP
+MODE: LINK
+STATE: ACTIVE
+
+DESCRIPTION: 
+J ist der universelle Sprung-Raum. 
+Er verbindet alle Räume, Achsen, Engines und Cluster miteinander.
+Er dient als Übergang, Router, Vector-Link und NC-Link-Forwarder.
