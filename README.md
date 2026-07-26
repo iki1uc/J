@@ -1,28 +1,67 @@
-# ANKER – Stabilisationsachse · iki1uc
+# J · UNIVERSAL-JUMP · LINK-ENGINE
 
-## Zweck
-ANKER ist die Stabilisationsachse des iki1uc‑Systems.
-Es hält die Achsen IQ, QI, EVO, UPD, UPG, BIOS und CALC im korrekten Verhältnis.
+Der Ordner **J/** ist der universelle Sprung-Raum des iki1uc-Systems.
+Er verbindet alle Räume, Achsen, Engines und Cluster miteinander.
 
-## Struktur
-- NAME: ANKER
-- ID: A01
-- Station: S01
-- Dimension: D4
-- Modus: erabel (neutral, operation möglich)
+J dient als:
 
-## Rolle
-ANKER stabilisiert, ohne selbst aktiv zu berechnen oder zu steuern.
-Es ist die neutrale Achse zwischen AXI, 6d und API.
+- Jump-Raum
+- Link-Raum
+- Vector-Router
+- NC-Link-Forwarder
+- Übergangsraum
+- Stations-Wechsler
+- Pipeline-Springer
+- Kontext-Verschieber
 
-## Bindungen
-- AXI
-- 6d
-- 360
-- 100
-- 213 (REAL)
-- API
+J ist vollständig unabhängig und kann jedes Modul verbinden.
+
+---
+
+## Inhalt
+
+J.room
+README.md
+id.html
+index.html
+
+
+---
+
+## Funktionen
+
+### 1. Jump-Engine
+Springt zwischen Räumen, Achsen und Engines.
+
+### 2. Link-Engine
+Verbindet NC.link, Vector.link und Station.link.
+
+### 3. Router
+Leitet Module weiter.
+
+### 4. Station-Finder
+Findet Stationen und Pipelines.
+
+### 5. Übergang
+Ermöglicht Wechsel zwischen Systemen.
+
+---
 
 ## Status
-STATE = STABIL  
-READY = 100%
+
+EBENE: aktiv
+JUMP: bereit
+LINK: stabil
+STATE: aktiv
+
+
+---
+
+## Start
+
+Öffne:
+
+index.html
+
+
+um den Jump-Raum zu aktivieren.
