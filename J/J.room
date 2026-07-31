@@ -1,77 +1,31 @@
-# J-ROOM
-NAME: J
-TYPE: UNIVERSAL-JUMP
-MODE: LINK
-STATE: ACTIVE
-
-DESCRIPTION:
-J ist der universelle Sprung-Raum.
-Er verbindet alle Räume, Achsen, Engines und Cluster miteinander.
-Er dient als Übergang, Router, Vector-Link und NC-Link-Forwarder.
-
-AXIOME:
-- T-Axiom  (Träger)
-- X-Axiom  (Kreuzpunkt)
-- Y-Axiom  (Fächer)
-- C-Axiom  (Konstellation)
-- KI-Axiom (Intelligenz)
-- E-Axiom  (Energie / Orbit / 6e)
-
-MATRIX:
-- 9x9 Schachmatrix (81 Felder)
-- 3x27 JOIN-Matrix (81 Felder)
-- ROOM-Matrix (dynamisch)
-
-LINKS:
-- JOIN.respo → OIN.respo
-- J → OIN ROOM
-- J → AXIOM
-- J → RESPO
-- J → NC
-- J → OPERATOR
-
-OPERATOR:
-- RUN
-- SCAN
-- VECTOR
-- LINK
-- SHIFT
-- JUMP
-
-STATUS:
-READY = TRUE
-<div class="matrix9" id="matrix9"></div>
-
 <script type="module">
-import { OIN_ROOM } from "../OIN/ROOM/OIN.js";
 
-const room = OIN_ROOM();
-const matrixDiv = document.getElementById("matrix9");
+// Loader
+async function load(path) {
+  const res = await fetch(path);
+  return res.text();
+}
 
-room.matrix.forEach(row => {
-    row.forEach(cell => {
-        const div = document.createElement("div");
-        div.className = "cell9";
-        div.textContent = `${cell.id} · ${cell.axiom}`;
-        matrixDiv.appendChild(div);
-    });
-});
+// EINWAHL · CONTINUUM-START
+async function continuumStart() {
+
+  const Z    = await load("Z/Z.room");
+  const CONT = await load("Z/continium.room");
+  const Q    = await load("Q/Q.room");
+  const QI   = await load("Q/QI.room");
+  const IQQ  = await load("Q/IQQ.room");
+  const HESS = await load("H/HESS.room");
+  const JUMP = await load("J/J.room");   // ← deine fehlende Einwahl
+
+  window.CONTINUUM = { Z, CONT, Q, QI, IQQ, HESS, JUMP };
+
+  document.getElementById("status").innerText =
+    "EINWAHL aktiv:\n" +
+    "Z → Q → QI → IQQ → HESS → J → Engine";
+}
+
+// AUTOSTART
+window.onload = async () => {
+  await continuumStart();
+};
 </script>
-<script type="module">
-import { Matrix3x27 } from "../OIN/MATRIX/matrix3x27.js";
-
-const m = Matrix3x27();
-console.log("JOIN 3×27 Matrix:", m);
-</script>
-import { OIN_respo } from "../OIN/oin-respo.js";
-
-const patch = OIN_respo(J_respo);
-console.log("J → OIN Patch:", patch);
-import { AxiomT } from "../OIN/axiomT.js";
-import { AxiomX } from "../OIN/axiomX.js";
-import { AxiomY } from "../OIN/axiomY.js";
-import { AxiomC } from "../OIN/axiomC.js";
-import { AxiomKI } from "../OIN/axiomKI.js";
-import { AxiomE } from "../OIN/axiomE.js";
-
-console.log("J‑Axiome:", AxiomT, AxiomX, AxiomY, AxiomC, AxiomKI, AxiomE);
