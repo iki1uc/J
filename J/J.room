@@ -40,3 +40,38 @@ OPERATOR:
 
 STATUS:
 READY = TRUE
+<div class="matrix9" id="matrix9"></div>
+
+<script type="module">
+import { OIN_ROOM } from "../OIN/ROOM/OIN.js";
+
+const room = OIN_ROOM();
+const matrixDiv = document.getElementById("matrix9");
+
+room.matrix.forEach(row => {
+    row.forEach(cell => {
+        const div = document.createElement("div");
+        div.className = "cell9";
+        div.textContent = `${cell.id} · ${cell.axiom}`;
+        matrixDiv.appendChild(div);
+    });
+});
+</script>
+<script type="module">
+import { Matrix3x27 } from "../OIN/MATRIX/matrix3x27.js";
+
+const m = Matrix3x27();
+console.log("JOIN 3×27 Matrix:", m);
+</script>
+import { OIN_respo } from "../OIN/oin-respo.js";
+
+const patch = OIN_respo(J_respo);
+console.log("J → OIN Patch:", patch);
+import { AxiomT } from "../OIN/axiomT.js";
+import { AxiomX } from "../OIN/axiomX.js";
+import { AxiomY } from "../OIN/axiomY.js";
+import { AxiomC } from "../OIN/axiomC.js";
+import { AxiomKI } from "../OIN/axiomKI.js";
+import { AxiomE } from "../OIN/axiomE.js";
+
+console.log("J‑Axiome:", AxiomT, AxiomX, AxiomY, AxiomC, AxiomKI, AxiomE);
