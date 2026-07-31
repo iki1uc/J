@@ -1,10 +1,42 @@
-#J-ROOM
+# J-ROOM
 NAME: J
 TYPE: UNIVERSAL-JUMP
 MODE: LINK
 STATE: ACTIVE
 
-DESCRIPTION: 
-J ist der universelle Sprung-Raum. 
+DESCRIPTION:
+J ist der universelle Sprung-Raum.
 Er verbindet alle Räume, Achsen, Engines und Cluster miteinander.
 Er dient als Übergang, Router, Vector-Link und NC-Link-Forwarder.
+
+AXIOME:
+- T-Axiom  (Träger)
+- X-Axiom  (Kreuzpunkt)
+- Y-Axiom  (Fächer)
+- C-Axiom  (Konstellation)
+- KI-Axiom (Intelligenz)
+- E-Axiom  (Energie / Orbit / 6e)
+
+MATRIX:
+- 9x9 Schachmatrix (81 Felder)
+- 3x27 JOIN-Matrix (81 Felder)
+- ROOM-Matrix (dynamisch)
+
+LINKS:
+- JOIN.respo → OIN.respo
+- J → OIN ROOM
+- J → AXIOM
+- J → RESPO
+- J → NC
+- J → OPERATOR
+
+OPERATOR:
+- RUN
+- SCAN
+- VECTOR
+- LINK
+- SHIFT
+- JUMP
+
+STATUS:
+READY = TRUE
