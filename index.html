@@ -9,9 +9,34 @@
   h1 { color:#33ccff; text-shadow:0 0 10px #00ffff; }
   .panel { background:#111; border:1px solid #333; padding:15px; margin:20px 0; border-radius:8px; }
   pre { background:#000; border:1px solid #333; padding:12px; border-radius:6px; white-space:pre-wrap; }
+
+  .jump-log {
+    background:#000;
+    border-left:3px solid #33ccff;
+    padding:10px;
+    margin-top:10px;
+    font-size:13px;
+  }
+
+  .matrix9 {
+    display:grid;
+    grid-template-columns:repeat(9, 1fr);
+    gap:4px;
+    margin-top:20px;
+  }
+  .cell9 {
+    background:#111;
+    border:1px solid #333;
+    padding:6px;
+    text-align:center;
+    font-size:11px;
+    color:#00ffff;
+  }
 </style>
 
-<script>
+<script type="module">
+import { OIN_ROOM } from "../OIN/ROOM/OIN.js";
+
 async function load(path){
   try{
     const r = await fetch("./" + path);
@@ -46,6 +71,9 @@ async function start(){
 
   const out = document.getElementById("out");
 
+  /* -----------------------------------------
+     FILE STATUS PANELS
+  ----------------------------------------- */
   for(const f of FILES){
     const content = await load(f);
     const vec = vector(content || "");
@@ -63,11 +91,52 @@ Status: ${vec.STATE}
     `;
     out.appendChild(div);
   }
+
+  /* -----------------------------------------
+     JUMP LOG – zeigt: kein Sprung vergebens
+  ----------------------------------------- */
+  const jump = document.createElement("div");
+  jump.className = "panel";
+  jump.innerHTML = `
+    <h2>JUMP-ENGINE · Sprungverlauf</h2>
+    <div class="jump-log">
+      JUMP 01 → ROOM geladen  
+      JUMP 02 → Axiome erkannt  
+      JUMP 03 → 9×9 Matrix erzeugt  
+      JUMP 04 → LINK-ENGINE aktiv  
+      JUMP 05 → UNIVERSAL-JUMP bereit  
+      <br><br>
+      Ergebnis: <b>Kein Sprung vergebens.</b>
+    </div>
+  `;
+  out.appendChild(jump);
+
+  /* -----------------------------------------
+     9×9 MATRIX
+  ----------------------------------------- */
+  const room = OIN_ROOM();
+  const matrixPanel = document.createElement("div");
+  matrixPanel.className = "panel";
+  matrixPanel.innerHTML = `<h2>ROOM · 9×9 Matrix</h2><div class="matrix9" id="matrix9"></div>`;
+  out.appendChild(matrixPanel);
+
+  const matrixDiv = document.getElementById("matrix9");
+
+  room.matrix.forEach(row => {
+    row.forEach(cell => {
+      const div = document.createElement("div");
+      div.className = "cell9";
+      div.textContent = `${cell.id} · ${cell.axiom}`;
+      matrixDiv.appendChild(div);
+    });
+  });
 }
+
+start();
 </script>
 </head>
 
-<body onload="start()">
+<body>
 
 <h1>J · UNIVERSAL-JUMP · LINK-ENGINE</h1>
 
